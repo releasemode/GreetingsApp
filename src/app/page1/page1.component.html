@@ -1,0 +1,21 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div class="row">
+    <div class="col-md-3 col-sm-12 my-1" *ngFor="let image of allimages">
+      <div class="card p-2">
+        <img (click)="addText(image.id)" width="100%" src="{{imagePath + image.image}}" alt="">
+        <br><br>
+        <!-- <p>
+          <b>size : </b> <span class="border p-1" [ngStyle]="{'fontSize': image.fontSize}"> {{image.fontSize}}</span>
+        </p>
+        <p>
+          <b>color : </b> <span class="border p-1" [ngStyle]="{'color': image.fontColor}"> {{image.fontColor}}</span>
+        </p> -->
+        <!-- <button class="btn btn-success my-1" (click)="addText(image.id)">Click to Edit/View</button> -->
+        <button class="btn btn-success my-1" (click)="addText(image.id)">تحديد</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+

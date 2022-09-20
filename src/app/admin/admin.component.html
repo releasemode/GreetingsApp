@@ -1,0 +1,65 @@
+<div class="container">
+    <app-navbar></app-navbar>
+    <form [formGroup]="uploadForm">
+        <div class="container">
+    
+            <div class="row p-3 border m-1">
+                <div class="col-lg-4"></div>
+                <h6>
+                    Enter All Details (All Fields Required)
+                </h6>
+                <div class="col-lg-4">
+                    <div class="form-group my-2">
+                        <input class="form-control" type="color" formControlName="color" placeholder="color">
+    
+                    </div>
+                    <div class="form-group my-2">
+                        <input class="form-control" type="number" formControlName="size" placeholder="size">
+                    </div>
+                    <div class="form-group my-2">
+                        <select class="form-control" formControlName="font">
+                            <option value="arial">arial</option>
+                            <option value="roboto">roboto</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="sans-serif">sans-serif</option>
+                            <option value="janna">Janna LT Bold</option>
+                        </select>
+                    </div>
+                    <div class="form-group my-2">
+                        <input id="fileinp" class="form-control" type="file"  formControlName="image" (change)="onFileChange($event)">
+                    </div>
+                    <button class="btn btn-primary btn-block w-100" [disabled]="!this.uploadForm.valid"
+                        (click)="submitForm()">Submit</button>
+                    <!-- <button class="btn btn-primary btn-block w-100" 
+                        (click)="submitForm()">Submit</button> -->
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+    </form>
+
+
+    <h5>All Images</h5>
+    <div class="row">
+        <div class="col-md-3 col-sm-12 my-1" *ngFor="let image of allimages">
+            <div class="card p-2">
+
+                <img (click)="addText(image.id)" width="100%" src="{{imagePath + image.image}}" alt="">
+                <br><br>
+                <p>
+                    <b>size : </b> <span class="border p-1" [ngStyle]="{'fontSize': image.fontSize}">
+                        {{image.fontSize}}</span>
+                </p>
+                <p>
+                    <b>color : </b> <span class="border p-1" [ngStyle]="{'color': image.fontColor}">
+                        {{image.fontColor}}</span>
+                </p>
+                <!-- <button class="btn btn-success my-1" (click)="addText(image.id)">Click to Edit/View</button> -->
+                <button class="btn btn-success my-1" (click)="addText(image.id)">Click to Edit/View</button>
+                <button class="btn btn-danger mx-1" (click)="delete(image.id)">Delete</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>

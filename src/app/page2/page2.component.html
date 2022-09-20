@@ -1,0 +1,41 @@
+<div class="b">
+    <input class="d-none" type="text" id="imageUrl" [(ngModel)]="obj.imageUrl">
+    <input class="d-none" type="text" id="font" [(ngModel)]="obj.font">
+    <input class="d-none" type="number" id="size" [(ngModel)]="obj.size">
+    <input class="d-none" type="text" id="color" [(ngModel)]="obj.color">
+    <input class="d-none" type="text" id="color" [(ngModel)]="obj.color">
+    <input class="d-none" type="text" id="x" [(ngModel)]="obj.text.coordinates.x">
+    <input class="d-none" type="text" id="y" [(ngModel)]="obj.text?.coordinates.y">
+    <input class="d-none" type="text" id="isAdmin" [(ngModel)]="isAdmin">
+</div>
+<div>
+    <input class="d-none" type="number" id="newx">
+    <input class="d-none" type="number" id="newy">
+</div>
+
+<div class="container">
+    <app-navbar></app-navbar>
+    <div class="form-group row py-5">
+        <!-- <p>Enter Text to Show</p> -->
+        <p>أدخل أسمك</p>
+        <div class="col-12">
+            <input class="form-control" id="txt" type="text" [formControl]="user">
+        </div>
+        <div class="col-12  my-2 w-100">
+            <div class="d-flex w-100  ">
+                <div class="w-100  ">
+                    <!-- <button class="btn btn-primary mx-1" (click)="drag()">Add Text</button> -->
+                    <button class="btn btn-primary mx-1" [disabled]="!user.value" (click)="drag()">إضافة الاسم</button>
+                    <!-- <button class="btn btn-success" (click)="downloadImage()">download</button> -->
+                    <button class="btn btn-success" [disabled]="!textAdded" (click)="downloadImage()">تحميل</button>
+
+                    <!-- <button *ngIf="isAdmin" class="btn btn-success mx-2 " (click)="saveposition()">Save</button> -->
+                    <button *ngIf="isAdmin" class="btn btn-success mx-2 " (click)="saveposition()">حفظ</button>
+                    <button class="d-none" id="setcoordinates" (click)="setCoordinates()">SetCoordinates</button>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+    </div>
