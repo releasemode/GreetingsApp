@@ -10,8 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class AdminService {
 
-  ApiBasePath = "http://103.104.48.64:81/api/v1/";
-  imageBasePath = "http://103.104.48.64:81/uploads/";
+  // ApiBasePath = "http://103.104.48.64:81/api/v1/";
+  // imageBasePath = "http://103.104.48.64:81/uploads/";
+  ApiBasePath = "http://24.199.66.226/api/v1/";
+  imageBasePath = "http://24.199.66.226/uploads/";
 
   httpOptions = {
     headers: new HttpHeaders({
